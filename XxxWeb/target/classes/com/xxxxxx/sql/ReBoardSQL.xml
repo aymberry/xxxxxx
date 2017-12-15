@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reBoard">
+	<select id="getTotal" resultType="int">
+		SELECT
+			COUNT(*)
+		FROM
+			REBOARD
+		WHERE
+			B_ISSHOW='Y'
+	</select>
+	<select id="getBoardList" resultType="hMap">
+		SELECT
+			B_NO		AS NO,
+			B_WRITER	AS WRITER,
+			B_TITLE		AS TITLE,
+			B_DATE		AS WDAY,
+			B_HIT		AS HIT
+		FROM
+			REBOARD
+		ORDER BY
+			B_NO DESC;
+	</select>
+
+</mapper>
